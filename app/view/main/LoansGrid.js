@@ -94,7 +94,7 @@ Ext.define('CredoApp.view.main.LoansGrid', {
                     
                     Ext.Ajax.request({
                         url: 'https://localhost:7280/api/loans/' + record.get('id') + '/send',
-                        method: 'POST', // 👈 ჩვენი ახალი ბულიანის ენდფოინთი
+                        method: 'POST', 
                         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwtToken') },
                         success: function () { 
                             Ext.ComponentQuery.query('loansgrid')[0].getStore().load(); 
@@ -130,9 +130,9 @@ Ext.define('CredoApp.view.main.LoansGrid', {
                     var form = win.down('form');
                     
                     form.getForm().reset();
-                    form.getForm().loadRecord(record); // ავტომატურად შეავსებს Amount, LoanType და ა.შ.
+                    form.getForm().loadRecord(record); 
                     
-                    form.loanId = record.get('id'); // ვინახავთ ID-ს ფორმის ობიექტში PUT-ისთვის
+                    form.loanId = record.get('id'); 
                     win.setTitle('Edit Draft Loan (ID: ' + record.get('id') + ')');
                     win.show();
                 }
