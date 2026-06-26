@@ -1,6 +1,9 @@
 Ext.define('CredoApp.view.main.Login', {
     extend: 'Ext.window.Window',
     xtype: 'loginwindow',
+    requires: [
+        'CredoApp.view.main.RegisterWindow'
+    ],
 
     title: 'Credo Bank - Auth',
     closable: false,
@@ -24,6 +27,13 @@ Ext.define('CredoApp.view.main.Login', {
             { name: 'password', fieldLabel: 'Password', inputType: 'password', emptyText: '******' }
         ],
         buttons: [{
+                text: 'Register',
+                ui: 'default', 
+                handler: function() {
+                    
+                    Ext.create('CredoApp.view.main.RegisterWindow');
+                }
+            },{
             text: 'Login',
             formBind: true,
             scale: 'medium',
